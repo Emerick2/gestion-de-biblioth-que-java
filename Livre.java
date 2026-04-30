@@ -32,4 +32,12 @@ public class Livre {
     public void setIsAvailable(Boolean valeur) {
         isAvailable = valeur;
     }
+
+    public void ToString(){
+        String emprunt = "emprunté";
+        if (IsAvailable()){
+            emprunt = "non emprunté";
+        }
+        System.out.println(getId()+" | "+getTitle()+" - "+getAuthor()+ " ("+emprunt+")");
+    }
 }

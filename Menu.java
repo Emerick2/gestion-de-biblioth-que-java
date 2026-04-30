@@ -9,7 +9,12 @@ public class Menu {
         bibliotheque.addLivres(livre1);
         bibliotheque.addLivres(livre2);
 
-        bibliotheque.ChangerListeLivre(EmprunterUnLivre.FaireEmprunterUnLivre(bibliotheque.getLivres(), bibliotheque.getLivres().get(0).getId()));
-        bibliotheque.ChangerListeLivre(RetournerUnLivre.FaireRetournerUnLivre(bibliotheque.getLivres(), bibliotheque.getLivres().get(0).getId()));
+        bibliotheque.ChangerListeLivre(EmprunterUnLivre.FenetreEmpruntDeLivre(bibliotheque.getLivres()));
+        // bibliotheque.ChangerListeLivre(RetournerUnLivre.FaireRetournerUnLivre(bibliotheque.getLivres(), bibliotheque.getLivres().get(0).getId()));
+    
+        int valeur = FaireUnChoix.NouveauChoix(0,5);
+        System.out.println(valeur);
+
+        ChercherUnLivre.FenetreRecherche(bibliotheque.getLivres());
     }
 }

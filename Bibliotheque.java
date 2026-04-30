@@ -29,6 +29,17 @@ public class Bibliotheque {
         this.livres = nouvelleListeLivre;
    }
 
+   public static Livre TrouverLeLivreParID(List<Livre> listeLivre, int identifiantLivre){
+        for (Livre leLivre : listeLivre) {
+            if (leLivre != null){
+                if (leLivre.getId() == identifiantLivre){
+                    return leLivre;
+                }
+            }
+        }
+        return null;
+   }
+
    public void Liste_de_livres() {
         if (livres == null || livres.isEmpty()) {
             System.out.println("No books in the library.");
