@@ -1,10 +1,10 @@
 public class bibliotheque {
     private String name;
-    private Livre[] livres;
+    private Livre[] listlivres;
 
-    public bibliotheque(String name, Livre[] livres) {
+    public bibliotheque(String name, Livre[] listlivres) {
         this.name = name;
-        this.livres = livres;
+        this.listlivres = listlivres;
     }
 
     public String getName() {
@@ -12,6 +12,6 @@ public class bibliotheque {
     }
 
     public Livre[] getLivres() {
-        return livres;
+        return listlivres;
     }
 }
