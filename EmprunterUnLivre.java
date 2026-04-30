@@ -4,7 +4,9 @@ import java.util.ArrayList;
 public class EmprunterUnLivre {
     public static ArrayList<Livre> FenetreEmpruntDeLivre(ArrayList<Livre> listeLivre, Bibliotheque bibliotheque){
         System.out.println("Bienvenu dans votre interface pour emprunter un livre !");
-        bibliotheque.Liste_de_livres_empruntable();
+        if (!bibliotheque.Liste_de_livres_empruntable()) {
+            return listeLivre;
+        }
 
         System.out.println("");
         System.out.println("Écrivez l'identifiant du livre que vous souhaitez emprunter.");

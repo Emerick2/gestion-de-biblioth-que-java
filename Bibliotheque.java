@@ -76,9 +76,10 @@ public class Bibliotheque {
         }
     }
 
-    public void Liste_de_livres_empruntable() {
+    public boolean Liste_de_livres_empruntable() {
         if (livres == null || livres.isEmpty()) {
             System.out.println("Il n'y a pas de livre dans la bibliothèque.");
+            return false;
         } else {
             Boolean ilYAUnLivreOuPlus = false;
             
@@ -90,13 +91,18 @@ public class Bibliotheque {
                     System.out.println(livre.getId() + " | "+ livre.getTitre() + " écrit par " + livre.getAuteur());
                 }
             }
-            if (!ilYAUnLivreOuPlus) System.out.println("Il n'y a plus de livre empruntable dans notre bibliothèque, désolé...");
+            if (!ilYAUnLivreOuPlus) {
+                System.out.println("Il n'y a plus de livre empruntable dans notre bibliothèque, désolé...");
+                return false;
+            }
         }
+        return true;
     }
 
-    public void Liste_de_livres_non_empruntable() {
+    public boolean Liste_de_livres_non_empruntable() {
         if (livres == null || livres.isEmpty()) {
             System.out.println("Il n'y a pas de livre dans la bibliothèque.");
+            return false;
         } else {
             Boolean ilYAUnLivreOuPlus = false;
             
@@ -108,7 +114,11 @@ public class Bibliotheque {
                     System.out.println(livre.getId() + " | "+livre.getTitre() + " écrit par " + livre.getAuteur());
                 }
             }
-            if (!ilYAUnLivreOuPlus) System.out.println("Il n'y a plus de livre à rendre dans notre bibliothèque, désolé.");
+            if (!ilYAUnLivreOuPlus) {
+                System.out.println("Il n'y a plus de livre à rendre dans notre bibliothèque, désolé.");
+                return false;
+            }
         }
+        return true;
     }
 }
