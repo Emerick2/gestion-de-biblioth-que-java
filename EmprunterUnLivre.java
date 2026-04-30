@@ -5,7 +5,7 @@ public class EmprunterUnLivre {
         for (Livre leLivre : listeLivre) {
             if (leLivre.identifiant == identifiant){
                 if (!leLivre.livreEmprinter){
-                    leLivre.livreEmprinter = false;
+                    leLivre.livreEmprinter = true;
                     System.out.Println("Vous avez emprunter le livre : "+leLivre.titre+" écrit par "+leLivre.auteur);
                     return listeLivre;
                 } else {
