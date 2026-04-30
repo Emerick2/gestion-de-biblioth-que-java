@@ -28,4 +28,15 @@ public class Bibliotheque {
    public void ChangerListeLivre(List<Livre> nouvelleListeLivre){
         this.livres = nouvelleListeLivre;
    }
+
+   public static Livre TrouverLeLivreParID(List<Livre> listeLivre, int identifiantLivre){
+        for (Livre leLivre : listeLivre) {
+            if (leLivre != null){
+                if (leLivre.getId() == identifiantLivre){
+                    return leLivre;
+                }
+            }
+        }
+        return null;
+   }
 }
