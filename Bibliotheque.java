@@ -28,4 +28,15 @@ public class Bibliotheque {
    public void ChangerListeLivre(List<Livre> nouvelleListeLivre){
         this.livres = nouvelleListeLivre;
    }
+
+   public void Liste_de_livres() {
+        if (livres == null || livres.isEmpty()) {
+            System.out.println("No books in the library.");
+        } else {
+            for (int i = 0; i < livres.size(); i++) {
+                Livre livre = this.livres.get(i);
+                System.out.println(livre.getTitle() + " of " + livre.getAuthor());
+            }
+        }
+    }
 }
