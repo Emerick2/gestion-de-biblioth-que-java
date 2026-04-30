@@ -1,8 +1,9 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Bibliotheque {
-    private String name;
-    private List<Livre> livres;
+    private String name = "";
+    private List<Livre> livres = new ArrayList<Livre>();
 
     public Bibliotheque(String name, List<Livre> livres) {
         this.name = name;
@@ -16,4 +17,15 @@ public class Bibliotheque {
     public List<Livre> getLivres() {
         return livres;
     }
+
+    public void addLivres(Livre livre) {
+        if (livres == null){
+            livres = new ArrayList<Livre>();
+        }
+        this.livres.add(livre);
+   }
+
+   public void ChangerListeLivre(List<Livre> nouvelleListeLivre){
+        this.livres = nouvelleListeLivre;
+   }
 }

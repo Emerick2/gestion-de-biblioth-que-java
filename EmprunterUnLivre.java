@@ -5,9 +5,9 @@ public class EmprunterUnLivre {
         for (Livre leLivre : listeLivre) {
             if (leLivre != null){
                 if (leLivre.getId() == identifiantLivre){
-                    if (!leLivre.IsAvailable()){
-                        leLivre.setIsAvailable(true);
-                        System.out.println("Vous avez emprunter le livre : "+leLivre.getTitle()+" écrit par "+leLivre.getAuthor());
+                    if (leLivre.IsAvailable()){
+                        leLivre.setIsAvailable(false);
+                        System.out.println("Vous avez emprunter le livre : "+leLivre.getTitle()+" écrit par "+leLivre.getAuthor()+".");
                         return listeLivre;
                     } else {
                         System.out.println("Le livre que vous souhaitez emprunter est déjà emprunter, désolé...");
