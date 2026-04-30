@@ -13,6 +13,8 @@ public class Menu {
         bibliotheque.ChangerListeLivre(RetournerUnLivre.FaireRetournerUnLivre(bibliotheque.getLivres(), bibliotheque.getLivres().get(0).getId()));
     
         int valeur = FaireUnChoix.NouveauChoix(0,5);
-        System.out.println(valeur+5);
+        System.out.println(valeur);
+
+        ChercherUnLivre.FenetreRecherche(bibliotheque.getLivres());
     }
 }
