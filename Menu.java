@@ -11,5 +11,8 @@ public class Menu {
 
         bibliotheque.ChangerListeLivre(EmprunterUnLivre.FaireEmprunterUnLivre(bibliotheque.getLivres(), bibliotheque.getLivres().get(0).getId()));
         bibliotheque.ChangerListeLivre(RetournerUnLivre.FaireRetournerUnLivre(bibliotheque.getLivres(), bibliotheque.getLivres().get(0).getId()));
+    
+        int valeur = FaireUnChoix.NouveauChoix(0,5);
+        System.out.println(valeur+5);
     }
 }
