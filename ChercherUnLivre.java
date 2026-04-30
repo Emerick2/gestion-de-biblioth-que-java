@@ -22,6 +22,7 @@ public class ChercherUnLivre {
         nom = nom.replace("ö", "o");
         nom = nom.replace("ò", "o");
         nom = nom.replace("ô", "o");
+        nom = nom.replace("ç", "c");
         return nom;
     }
 
