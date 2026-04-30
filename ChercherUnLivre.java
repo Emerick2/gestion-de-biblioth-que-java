@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class ChercherUnLivre {
     public static String FormatNom(String nom){
@@ -22,10 +23,11 @@ public class ChercherUnLivre {
         nom = nom.replace("ö", "o");
         nom = nom.replace("ò", "o");
         nom = nom.replace("ô", "o");
+        nom = nom.replace("ç", "c");
         return nom;
     }
 
-    public static void FenetreRecherche(List<Livre> listeLivre){
+    public static void FenetreRecherche(ArrayList<Livre> listeLivre){
         System.out.println("");
         System.out.println("Bienvenu dans votre interface de recherche !");
         System.out.println("Que shouaitez vous faire ?");
@@ -52,13 +54,13 @@ public class ChercherUnLivre {
         
     }
 
-    public static void FaireUneRechercheDeLivreParTitre(List<Livre> listeLivre, String recherche){
+    public static void FaireUneRechercheDeLivreParTitre(ArrayList<Livre> listeLivre, String recherche){
         Boolean unLivreOuPlusTrouver = false;
         recherche = FormatNom(recherche);
         System.out.println(recherche);
         for (Livre leLivre : listeLivre) {
             if (leLivre != null){
-                String nomDuLivre = FormatNom(leLivre.getTitle());
+                String nomDuLivre = FormatNom(leLivre.getTitre());
                 if (nomDuLivre.equals(recherche)){
                     if (!unLivreOuPlusTrouver) System.out.println("Voici la liste des livre qui correspondent à votre recherche :");
                     leLivre.ToString();
@@ -70,12 +72,12 @@ public class ChercherUnLivre {
     }
 
 
-    public static void FaireUneRechercheDeLivreParAuteur(List<Livre> listeLivre, String recherche){
+    public static void FaireUneRechercheDeLivreParAuteur(ArrayList<Livre> listeLivre, String recherche){
         Boolean unLivreOuPlusTrouver = false;
         recherche = FormatNom(recherche);
         for (Livre leLivre : listeLivre) {
             if (leLivre != null){
-                String nomDuLivre = FormatNom(leLivre.getTitle());
+                String nomDuLivre = FormatNom(leLivre.getTitre());
                 if (nomDuLivre.equals(recherche)){
                     if (!unLivreOuPlusTrouver) System.out.println("Voici la liste des livre qui correspondent à votre recherche :");
                     leLivre.ToString();

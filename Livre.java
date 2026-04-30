@@ -1,43 +1,33 @@
 public class Livre {
-    private String title;
-    private String author;
+    private String titre;
     private int id;
-    private Boolean isAvailable;
+    private String auteur;
+    private boolean isAvailable;
     public static int numberOfBooks = 0;
 
-    public Livre(String title, String author) {
+     public Livre(String titre, String auteur) {
         numberOfBooks++;
-        this.title = title;
-        this.author = author;
+        this.titre = titre;
+        this.auteur = auteur;
         this.id = numberOfBooks;
         this.isAvailable = true;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public Boolean IsAvailable() {
-        return isAvailable;
-    }
-
+    public String getTitre() { return titre; }
+    public String getAuteur() { return auteur; }
+    public int getId() { return id; }
+    public boolean isAvailable() { return isAvailable; }
+    
     public void setIsAvailable(Boolean valeur) {
         isAvailable = valeur;
     }
 
-    public void ToString(){
+   public void ToString(){
         String emprunt = "emprunté";
-        if (IsAvailable()){
+        if (isAvailable()){
             emprunt = "non emprunté";
         }
-        System.out.println(getId()+" | "+getTitle()+" - "+getAuthor()+ " ("+emprunt+")");
+        System.out.println(getId()+" | "+getTitre()+" - "+getAuteur()+ " ("+emprunt+")");
     }
 }
+

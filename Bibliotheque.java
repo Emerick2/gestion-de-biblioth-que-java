@@ -1,11 +1,12 @@
+import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Bibliotheque {
-    private String name = "";
-    private List<Livre> livres = new ArrayList<Livre>();
+    private String name;
+    private ArrayList<Livre> livres = new ArrayList<>();
 
-    public Bibliotheque(String name, List<Livre> livres) {
+    public Bibliotheque(String name, ArrayList<Livre> livres) {
         this.name = name;
         this.livres = livres;
     }
@@ -14,22 +15,28 @@ public class Bibliotheque {
         return name;
     }
 
-    public List<Livre> getLivres() {
+    public ArrayList<Livre> getLivres() {
         return livres;
     }
 
-    public void addLivres(Livre livre) {
-        if (livres == null){
-            livres = new ArrayList<Livre>();
-        }
-        this.livres.add(livre);
-   }
+    public void AjouterLivre() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Titre : ");
+        String titre = scanner.nextLine();
 
-   public void ChangerListeLivre(List<Livre> nouvelleListeLivre){
+        System.out.print("Auteur : ");
+        String auteur = scanner.nextLine();
+
+        Livre livre = new Livre(titre, auteur);
+        livres.add(livre);
+        System.out.println("Livre ajouté avec succès !");
+    }
+
+    public void ChangerListeLivre(ArrayList<Livre> nouvelleListeLivre){
         this.livres = nouvelleListeLivre;
-   }
+    }
 
-   public static Livre TrouverLeLivreParID(List<Livre> listeLivre, int identifiantLivre){
+    public static Livre TrouverLeLivreParID(List<Livre> listeLivre, int identifiantLivre){
         for (Livre leLivre : listeLivre) {
             if (leLivre != null){
                 if (leLivre.getId() == identifiantLivre){
@@ -40,14 +47,68 @@ public class Bibliotheque {
         return null;
    }
 
-   public void Liste_de_livres() {
+    public void afficherLivres() {
+        if (livres.isEmpty()) {
+            System.out.println("Aucun livre dans la bibliothèque.");
+            return;
+        }
+        System.out.println("Liste des livres :");
+        for (Livre l : livres) {
+            System.out.print("- ");
+            l.ToString();
+        }
+    }
+
+    public void Liste_de_livres() {
         if (livres == null || livres.isEmpty()) {
-            System.out.println("No books in the library.");
+            System.out.println("Il n'y a pas de livre dans la bibliothèque.");
         } else {
+            Boolean ilYAUnLivreOuPlus = false;
             for (int i = 0; i < livres.size(); i++) {
                 Livre livre = this.livres.get(i);
-                System.out.println(livre.getTitle() + " of " + livre.getAuthor());
+                if (livre != null && !livre.isAvailable()){
+                    if (!ilYAUnLivreOuPlus) System.out.println("Voici la liste des livre à rendre dans notre bibliothèque :");
+                    ilYAUnLivreOuPlus = true;
+                    System.out.println(livre.getId() + " | "+livre.getTitre() + " écrit par " + livre.getAuteur());
+                }
             }
+            if (!ilYAUnLivreOuPlus) System.out.println("Il n'y a pas de livre dans la bibliothèque.");
+        }
+    }
+
+    public void Liste_de_livres_empruntable() {
+        if (livres == null || livres.isEmpty()) {
+            System.out.println("Il n'y a pas de livre dans la bibliothèque.");
+        } else {
+            Boolean ilYAUnLivreOuPlus = false;
+            
+            for (int i = 0; i < livres.size(); i++) {
+                Livre livre = this.livres.get(i);
+                if (livre != null && livre.isAvailable()){
+                    if (!ilYAUnLivreOuPlus) System.out.println("Voici la liste des livre empruntable de notre bibliothèque :");
+                    ilYAUnLivreOuPlus = true;
+                    System.out.println(livre.getId() + " | "+ livre.getTitre() + " écrit par " + livre.getAuteur());
+                }
+            }
+            if (!ilYAUnLivreOuPlus) System.out.println("Il n'y a plus de livre empruntable dans notre bibliothèque, désolé...");
+        }
+    }
+
+    public void Liste_de_livres_non_empruntable() {
+        if (livres == null || livres.isEmpty()) {
+            System.out.println("Il n'y a pas de livre dans la bibliothèque.");
+        } else {
+            Boolean ilYAUnLivreOuPlus = false;
+            
+            for (int i = 0; i < livres.size(); i++) {
+                Livre livre = this.livres.get(i);
+                if (livre != null && !livre.isAvailable()){
+                    if (!ilYAUnLivreOuPlus) System.out.println("Voici la liste des livre à rendre dans notre bibliothèque :");
+                    ilYAUnLivreOuPlus = true;
+                    System.out.println(livre.getId() + " | "+livre.getTitre() + " écrit par " + livre.getAuteur());
+                }
+            }
+            if (!ilYAUnLivreOuPlus) System.out.println("Il n'y a plus de livre à rendre dans notre bibliothèque, désolé.");
         }
     }
 }
