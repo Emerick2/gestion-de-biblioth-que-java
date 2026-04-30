@@ -1,9 +1,10 @@
 import java.util.List;
+import java.util.ArrayList;
+
 public class RetournerUnLivre {
-    public static List<Livre> FenetreRetourDeLivre(List<Livre> listeLivre){
+    public static ArrayList<Livre> FenetreRetourDeLivre(ArrayList<Livre> listeLivre, Bibliotheque bibliotheque){
         System.out.println("Bienvenu dans votre interface pour rendre un livre !");
-        // System.out.println("Voici la liste des livre de notre bibliothèque :");
-        // quand la fonction aurras été terminer il faudras écrire ici la liste des livre qui peuvent être emprunter.
+        bibliotheque.Liste_de_livres_non_empruntable();
 
         System.out.println("");
         System.out.println("Écrivez l'identifiant du livre que vous souhaitez rendre.");
@@ -11,13 +12,13 @@ public class RetournerUnLivre {
         return FaireRetournerUnLivre(listeLivre, idChoisie);
     }
 
-    public static List<Livre> FaireRetournerUnLivre(List<Livre> listeLivre, int identifiantLivre){
+    public static ArrayList<Livre> FaireRetournerUnLivre(ArrayList<Livre> listeLivre, int identifiantLivre){
         Livre leLivre = Bibliotheque.TrouverLeLivreParID(listeLivre, identifiantLivre);
 
         if (leLivre != null){
-            if (!leLivre.IsAvailable()){
+            if (!leLivre.isAvailable()){
                 leLivre.setIsAvailable(true);
-                System.out.println("Vous avez rendu le livre : "+leLivre.getTitle()+" écrit par "+leLivre.getAuthor()+".");
+                System.out.println("Vous avez rendu le livre : "+leLivre.getTitre()+" écrit par "+leLivre.getAuteur()+".");
             } else {
                 System.out.println("Vous n'avez pas emprunté se livre, désolé...");
             }

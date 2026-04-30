@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class FaireUnChoix {
     public static int NouveauChoix(int min, int max){

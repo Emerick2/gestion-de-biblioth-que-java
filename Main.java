@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Menu {
+public class Main {
     public static void main(String[] args) {
         ArrayList<Livre> livres = new ArrayList<>();
         Bibliotheque bibliotheque = new Bibliotheque("Ma Bibliothèque", livres);
@@ -27,10 +27,10 @@ public class Menu {
                     bibliotheque.afficherLivres();
                     break;
                 case "3":
-                    System.out.println("Emprunter un livre");
+                    bibliotheque.ChangerListeLivre(EmprunterUnLivre.FenetreEmpruntDeLivre(bibliotheque.getLivres(), bibliotheque));
                     break;
                 case "4":
-                    System.out.println("Retourner un livre");
+                    bibliotheque.ChangerListeLivre(RetournerUnLivre.FenetreRetourDeLivre(bibliotheque.getLivres(), bibliotheque));
                     break;
                 case "5":
                     System.out.println("Quitter");
