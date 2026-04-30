@@ -1,12 +1,12 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Menu {
     public static void main(String[] args) {
         ArrayList<Livre> livres = new ArrayList<>();
         Bibliotheque bibliotheque = new Bibliotheque("Ma Bibliothèque", livres);
         String Box = "";
-        int id = 0;
         Scanner scanner = new Scanner(System.in);
         boolean continuer = true;
 
@@ -21,8 +21,7 @@ public class Menu {
             Box = scanner.nextLine();
             switch (Box) {
                 case "1":
-                    bibliotheque.AjouterLivre(id);
-                    id++;
+                    bibliotheque.AjouterLivre();
                     break;
                 case "2":
                     bibliotheque.afficherLivres();

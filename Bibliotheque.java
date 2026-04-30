@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Bibliotheque {
     private String name;
@@ -18,7 +19,7 @@ public class Bibliotheque {
         return livres;
     }
 
-    public void AjouterLivre(int id) {
+    public void AjouterLivre() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Titre : ");
         String titre = scanner.nextLine();
@@ -26,10 +27,25 @@ public class Bibliotheque {
         System.out.print("Auteur : ");
         String auteur = scanner.nextLine();
 
-        Livre livre = new Livre(titre, auteur, id);
+        Livre livre = new Livre(titre, auteur);
         livres.add(livre);
         System.out.println("Livre ajouté avec succès !");
     }
+
+    public void ChangerListeLivre(ArrayList<Livre> nouvelleListeLivre){
+        this.livres = nouvelleListeLivre;
+    }
+
+    public static Livre TrouverLeLivreParID(List<Livre> listeLivre, int identifiantLivre){
+        for (Livre leLivre : listeLivre) {
+            if (leLivre != null){
+                if (leLivre.getId() == identifiantLivre){
+                    return leLivre;
+                }
+            }
+        }
+        return null;
+   }
 
     public void afficherLivres() {
         if (livres.isEmpty()) {
@@ -41,21 +57,15 @@ public class Bibliotheque {
             System.out.println("- " + l);
         }
     }
-    // public void Ajouter_livre(int id) {
-    //     Scanner myObj = new Scanner(System.in);
-    //     System.out.println("Entrez le titre du livre:");
-    //     String title = myObj.nextLine();
-    //     Livre livre = new Livre(title, id);
-    //     for (int i = 0; i < livres.length; i++) {
-    //         if (livres[i] == null) {
-    //             livres[i] = livre;
-    //             break;
-    //         }
-    //     }
-    // }
-    // public void Liste_de_livres() {
-    //     for (int i = 0; i < livres.length; i++) {
-    //         System.out.println(livres[i].getTitle());// + " of " + livres[i].getAuthor());
-    //     }
-    // }
+
+    public void Liste_de_livres() {
+        if (livres == null || livres.isEmpty()) {
+            System.out.println("No books in the library.");
+        } else {
+            for (int i = 0; i < livres.size(); i++) {
+                Livre livre = this.livres.get(i);
+                System.out.println(livre.getTitre() + " of " + livre.getAuteur());
+            }
+        }
+    }
 }

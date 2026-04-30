@@ -3,11 +3,13 @@ public class Livre {
     private int id;
     private String auteur;
     private boolean isAvailable;
+    public static int numberOfBooks = 0;
 
-     public Livre(String titre, String auteur, int id) {
+     public Livre(String titre, String auteur) {
+        numberOfBooks++;
         this.titre = titre;
         this.auteur = auteur;
-        this.id = id;
+        this.id = numberOfBooks;
         this.isAvailable = true;
     }
 
@@ -16,9 +18,16 @@ public class Livre {
     public int getId() { return id; }
     public boolean isAvailable() { return isAvailable; }
     
-    @Override
-    public String toString() {
-        return id + " - " + titre + " (" + auteur + ")";
+    public void setIsAvailable(Boolean valeur) {
+        isAvailable = valeur;
+    }
+
+   public void ToString(){
+        String emprunt = "emprunté";
+        if (isAvailable()){
+            emprunt = "non emprunté";
+        }
+        System.out.println(getId()+" | "+getTitre()+" - "+getAuteur()+ " ("+emprunt+")");
     }
 }
 
