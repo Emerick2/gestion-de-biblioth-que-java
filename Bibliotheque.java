@@ -51,7 +51,7 @@ public class Bibliotheque {
                 if (livre != null && !livre.IsAvailable()){
                     if (!ilYAUnLivreOuPlus) System.out.println("Voici la liste des livre à rendre dans notre bibliothèque :");
                     ilYAUnLivreOuPlus = true;
-                    System.out.println(livre.getTitle() + " écrit par " + livre.getAuthor());
+                    System.out.println(livre.getId() + " | "+livre.getTitle() + " écrit par " + livre.getAuthor());
                 }
             }
             if (!ilYAUnLivreOuPlus) System.out.println(phraseBibliothequeVide);
@@ -69,7 +69,7 @@ public class Bibliotheque {
                 if (livre != null && livre.IsAvailable()){
                     if (!ilYAUnLivreOuPlus) System.out.println("Voici la liste des livre empruntable de notre bibliothèque :");
                     ilYAUnLivreOuPlus = true;
-                    System.out.println(livre.getTitle() + " écrit par " + livre.getAuthor());
+                    System.out.println(livre.getId() + " | "+ livre.getTitle() + " écrit par " + livre.getAuthor());
                 }
             }
             if (!ilYAUnLivreOuPlus) System.out.println("Il n'y a plus de livre empruntable dans notre bibliothèque, désolé...");
@@ -87,7 +87,7 @@ public class Bibliotheque {
                 if (livre != null && !livre.IsAvailable()){
                     if (!ilYAUnLivreOuPlus) System.out.println("Voici la liste des livre à rendre dans notre bibliothèque :");
                     ilYAUnLivreOuPlus = true;
-                    System.out.println(livre.getTitle() + " écrit par " + livre.getAuthor());
+                    System.out.println(livre.getId() + " | "+livre.getTitle() + " écrit par " + livre.getAuthor());
                 }
             }
             if (!ilYAUnLivreOuPlus) System.out.println("Il n'y a plus de livre à rendre dans notre bibliothèque, désolé.");
