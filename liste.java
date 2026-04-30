@@ -1,9 +1,8 @@
 import livre;
+import bibliotheque;
 
 public class liste {
-    public liste-livre[];
-    biblio new liste-livre[100];
-    for (i = 0; i < liste-livre.length; i++) {
-        println(liste-livre[i].titre);
+    for (i = 0; i < livre.length; i++) {
+        println(livre[i].Title(), "of", livre[i].Name());
     }
 }
