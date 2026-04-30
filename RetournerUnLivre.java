@@ -4,7 +4,9 @@ import java.util.ArrayList;
 public class RetournerUnLivre {
     public static ArrayList<Livre> FenetreRetourDeLivre(ArrayList<Livre> listeLivre, Bibliotheque bibliotheque){
         System.out.println("Bienvenu dans votre interface pour rendre un livre !");
-        bibliotheque.Liste_de_livres_non_empruntable();
+        if (!bibliotheque.Liste_de_livres_non_empruntable()) {
+            return listeLivre;
+        }
 
         System.out.println("");
         System.out.println("Écrivez l'identifiant du livre que vous souhaitez rendre.");
