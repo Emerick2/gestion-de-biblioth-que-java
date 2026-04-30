@@ -1,38 +1,31 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Menu {
-    public Bibliotheque bibliotheque;
-    public Menu() {
-        Livre[] livres = new Livre[0];
-        this.bibliotheque = new Bibliotheque("Ma Bibliothèque", livres);
-    }
-
     public static void main(String[] args) {
-        Menu menu = new Menu();
+        ArrayList<Livre> livres = new ArrayList<>();
+        Bibliotheque bibliotheque = new Bibliotheque("Ma Bibliothèque", livres);
         String Box = "";
         int id = 0;
+        Scanner scanner = new Scanner(System.in);
+        boolean continuer = true;
 
-        while (!Box.equals("5")) {
-            System.out.println("Bienvenue à la bibliothèque");
+        while (continuer) {
+            System.out.println("\n--- MENU ---");
             System.out.println("1. Ajouter un livre");
             System.out.println("2. Afficher les livres disponibles");
             System.out.println("3. Emprunter un livre");
             System.out.println("4. Retourner un livre");
             System.out.println("5. Quitter\n\n");
-            Scanner myObj = new Scanner(System.in);
-            Box = myObj.nextLine();
+            
+            Box = scanner.nextLine();
             switch (Box) {
                 case "1":
-                    if (id >= 10) {
-                        System.out.println("La bibliothèque est pleine");
-                        break;
-                    } else {
-                        menu.bibliotheque.Ajouter_livre(id);
-                        id++;
-                    }
+                    bibliotheque.AjouterLivre(id);
+                    id++;
                     break;
                 case "2":
-                    menu.bibliotheque.Liste_de_livres();
+                    bibliotheque.afficherLivres();
                     break;
                 case "3":
                     System.out.println("Emprunter un livre");
@@ -42,11 +35,13 @@ public class Menu {
                     break;
                 case "5":
                     System.out.println("Quitter");
+                    continuer = false;
                     break;
                 default:
                     System.out.println("Option invalide");
             }
             System.out.println("");
-        } 
+        }
+        scanner.close();
     }
 }

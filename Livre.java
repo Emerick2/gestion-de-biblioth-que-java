@@ -1,23 +1,24 @@
 public class Livre {
-    private String title;
+    private String titre;
     private int id;
+    private String auteur;
     private boolean isAvailable;
 
-    public Livre(String title, int id) {
-        this.title = title;
+     public Livre(String titre, String auteur, int id) {
+        this.titre = titre;
+        this.auteur = auteur;
         this.id = id;
         this.isAvailable = true;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public boolean isAvailable() {
-        return isAvailable;
+    public String getTitre() { return titre; }
+    public String getAuteur() { return auteur; }
+    public int getId() { return id; }
+    public boolean isAvailable() { return isAvailable; }
+    
+    @Override
+    public String toString() {
+        return id + " - " + titre + " (" + auteur + ")";
     }
 }
+
