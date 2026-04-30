@@ -1,10 +1,9 @@
 import java.util.List;
 
 public class EmprunterUnLivre {
-    public static List<Livre> FenetreEmpruntDeLivre(List<Livre> listeLivre){
+    public static List<Livre> FenetreEmpruntDeLivre(List<Livre> listeLivre, Bibliotheque bibliotheque){
         System.out.println("Bienvenu dans votre interface pour emprunter un livre !");
-        // System.out.println("Voici la liste des livre de notre bibliothèque :");
-        // quand la fonction aurras été terminer il faudras écrire ici la liste des livre qui peuvent être emprunter.
+        bibliotheque.Liste_de_livres_empruntable();
 
         System.out.println("");
         System.out.println("Écrivez l'identifiant du livre que vous souhaitez emprunter.");

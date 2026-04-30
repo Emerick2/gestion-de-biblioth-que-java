@@ -1,9 +1,8 @@
 import java.util.List;
 public class RetournerUnLivre {
-    public static List<Livre> FenetreRetourDeLivre(List<Livre> listeLivre){
+    public static List<Livre> FenetreRetourDeLivre(List<Livre> listeLivre, Bibliotheque bibliotheque){
         System.out.println("Bienvenu dans votre interface pour rendre un livre !");
-        // System.out.println("Voici la liste des livre de notre bibliothèque :");
-        // quand la fonction aurras été terminer il faudras écrire ici la liste des livre qui peuvent être emprunter.
+        bibliotheque.Liste_de_livres_non_empruntable();
 
         System.out.println("");
         System.out.println("Écrivez l'identifiant du livre que vous souhaitez rendre.");
