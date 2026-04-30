@@ -3,18 +3,20 @@ import java.util.List;
 public class EmprunterUnLivre {
     public static List<Livre> FaireEmprunterUnLivre(List<Livre> listeLivre, int identifiantLivre){
         for (Livre leLivre : listeLivre) {
-            if (leLivre.identifiant == identifiant){
-                if (!leLivre.livreEmprinter){
-                    leLivre.livreEmprinter = true;
-                    System.out.Println("Vous avez emprunter le livre : "+leLivre.titre+" écrit par "+leLivre.auteur);
-                    return listeLivre;
-                } else {
-                    System.out.Println("Le livre que vous souhaitez emprunter est déjà emprunter, désolé...");
-                    return listeLivre;
+            if (leLivre != null){
+                if (leLivre.getId() == identifiantLivre){
+                    if (!leLivre.IsAvailable()){
+                        leLivre.setIsAvailable(true);
+                        System.out.println("Vous avez emprunter le livre : "+leLivre.getTitle()+" écrit par "+leLivre.getAuthor());
+                        return listeLivre;
+                    } else {
+                        System.out.println("Le livre que vous souhaitez emprunter est déjà emprunter, désolé...");
+                        return listeLivre;
+                    }
                 }
             }
         }
-        System.out.Println("Le livre que vous cherchez n'est pas dans notre bibliothèque, désolé...");
+        System.out.println("Le livre que vous cherchez n'est pas dans notre bibliothèque, désolé...");
         return listeLivre;
     }
 }

@@ -1,12 +1,31 @@
 public class Livre {
-    public String titre = "";
-    public String auteur = "";
-    public int identifiant = 0;
-    public bool livreEmprinter = false;
+    private String title;
+    private String author;
+    private int id;
+    private Boolean isAvailable;
 
-    public void Livre(String titre, String auteur, int identifiant){
-        this.titre = titre;
-        this.auteur = auteur;
-        this.identifiant = identifiant;
+    public Livre(String title) {
+        this.title = title;
+        this.isAvailable = true;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Boolean IsAvailable() {
+        return isAvailable;
+    }
+
+    public void setIsAvailable(Boolean valeur) {
+        isAvailable = valeur;
     }
 }
